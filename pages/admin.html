@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ .Title }}</title> <!-- {{ .Title }} -->
+    <link rel="stylesheet" href="../static/css/style-admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Oxygen&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="top">
+        <div class="container">
+            <div class="top__content">
+                <div class="top__logo logo">
+                    <p class="logo__title">Escape.</p>
+                    <p class="logo__title logo__title_small">author</p>
+                </div>
+                <div class="top__buttons">
+                    <img src="../static/images/avatar.png" alt="" class="top__avatar">
+                    <img id="logout" src="../static/images/menu-item.png" alt="" class="top__log-out">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="form" class="editor">
+        <!-- action="https://echo.htmlacademy.ru" method="post" -->
+        <div class="container">
+            <div class="editor__introduction introduction">
+                <div class="editor__text">
+                    <p class="editor__title">New Post</p>
+                    <p class="editor__subtitle">Fill out the form bellow and publish your article</p>
+                </div>
+                <div class="editor__buttons">
+                    <input id="publish_button" type="submit" class="editor__button" value="Publish">
+                </div>
+            </div>
+
+            <div id="error-box" class="message-box hidden">
+                <div class="message">
+                    <img class="message__alert" src="../static/images/alert-circle.png">
+                    <span id="message__text_error" class="message__text">Whoops! Some fields need your attention :o</span>
+                </div>
+            </div>
+            <div id="success-box" class="message-box hidden">
+                <div class="message message_success">
+                    <img class="message__alert" src="../static/images/check-circle.png">
+                    <span id="message__text_success" class="message__text">Publish Complete!</span>
+                </div>
+            </div>
+
+            <div class="editor__main main">
+                <p class="main__title">Main Information</p>
+                <div class="main__content">
+                    <div class="main__form form">
+                        <div class="form__input input">
+                            <label for="title" class="input__label">Title</label>
+                            <input id="title" name="title" type="text" class="input__field field">
+                            <p id="comment-title" class="comment hidden">Title is required.</p>
+                        </div>
+
+                        <div class="form__input input">
+                            <label for="subtitle" class="input__label">Short description</label>
+                            <input id="subtitle" name="subtitle" type="text" class="input__field field">
+                            <p id="comment-subtitle" class="comment hidden">Description is required.</p>
+                        </div>
+
+                        <div class="form__input input">
+                            <label for="author" class="input__label">Author name</label>
+                            <input id="author" name="author" type="text" class="input__field field">
+                            <p id="comment-author" class="comment hidden">Author name is required.</p>
+                        </div>
+
+                        <div class="form__input input">
+                            <input id="author_img" name="author_img" type="file" class="input__author-photo field">
+                            <label for="author_img" class="input__label">Author Photo
+                                <div class="input__buttons">
+                                    <div class="input__load load">
+                                        <img id="load__author-photo" class="load__author-photo"
+                                            src="../static/images/author-input.png">
+                                        <p class="load__text">Upload</p>
+                                    </div>
+                                    <div id="buttons_author" class="hidden">
+                                        <div class="input__upload upload">
+                                            <img src="../static/images/camera.png" alt="" class="upload__img">
+                                            <p class="upload__text">Upload New</p>
+                                        </div>
+                                        <div id="input__remove_author" class="input__remove remove">
+                                            <img src="../static/images/trash.png" alt="" class="remove__img">
+                                            <p class="remove__text">Remove</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+                            <p id="comment-author-img" class="comment hidden">Author photo is required.</p>
+                        </div>
+
+                        <div class="form__input input">
+                            <label for="publish_date" class="input__label">Publish Date</label>
+                            <input id="publish_date" name="publish_date" class="input__field field" type="date">
+                            <p id="comment-date" class="comment hidden">Publish date is required.</p>
+                        </div>
+
+                        <div class="form__input input">
+                            <input id="hero_img" name="hero_img" type="file" class="input__hero-image field">
+                            <label for="hero_img" class="input__label">Hero Image
+                                <div class="input__load load">
+                                    <img id="load__hero_img" class="load__hero-img"
+                                        src="../static/images/hero-image-input-big.png" alt="">
+                                </div>
+                                <div id="buttons_hero" class="hidden">
+                                    <div class="input__upload upload">
+                                        <img src="../static/images/camera.png" alt="" class="upload__img">
+                                        <p class="upload__text">Upload New</p>
+                                    </div>
+                                    <div id="input__remove_hero" class="input__remove remove">
+                                        <img src="../static/images/trash.png" alt="" class="remove__img">
+                                        <p class="remove__text">Remove</p>
+                                    </div>
+                                </div>
+                            </label>
+                            <p id="input__correction_big" class="input__correction">Size up to 10mb. Format: png, jpeg,
+                                gif.</p>
+                            <p id="comment-hero-img" class="comment hidden">Hero image is required.</p>
+                        </div>
+
+                        <div class="form__input input">
+                            <input id="hero_img_small" name="hero_img_small" type="file"
+                                class="input__hero-image field">
+                            <label for="hero_img_small" class="input__label">Hero Image
+                                <div class="input__load load">
+                                    <img id="load__hero_img_small" class="load__hero-img load__hero-img_small"
+                                        src="../static/images/hero-image-input-small.png" alt="">
+                                </div>
+                                <div id="buttons_hero_small" class="hidden">
+                                    <div class="input__upload upload">
+                                        <img src="../static/images/camera.png" alt="" class="upload__img">
+                                        <p class="upload__text">Upload New</p>
+                                    </div>
+                                    <div id="input__remove_hero_small" class="input__remove remove">
+                                        <img src="../static/images/trash.png" alt="" class="remove__img">
+                                        <p class="remove__text">Remove</p>
+                                    </div>
+                                </div>
+                            </label>
+                            <p id="input__correction_small" class="input__correction">Size up to 5mb. Format: png, jpeg,
+                                gif.</p>
+                            <p id="comment-hero-img-small" class="comment hidden">Hero image is required.</p>
+                        </div>
+                    </div>
+
+                    <div class="main__preview preview">
+                        <div class="preview__article article">
+                            <p class="article__title">Article preview</p>
+                            <div class="article__display display">
+                                <div class="display__desktop">
+                                    <div class="points">
+                                        <div class="point"></div>
+                                        <div class="point"></div>
+                                        <div class="point"></div>
+                                    </div>
+                                    <div class="article__text">
+                                        <p class="article__title-post" id="article_preview_title">Enter title</p>
+                                        <p class="article__subtitle-post" id="article_preview_subtitle">Enter subtitle
+                                        </p>
+                                    </div>
+                                    <img class="article__image" src="../static/images/article-load.png">
+                                </div>
+                                <div class="shadow-right"></div>
+                                <div class="shadow-bottom"></div>
+                            </div>
+                        </div>
+
+                        <div class="preview__post post">
+                            <p class="post__title">Post card preview</p>
+                            <div class="post__display display_small">
+                                <div class="display__card card">
+                                    <div class="card__info">
+                                        <img class="card__image" src="../static/images/post-load.png">
+                                        <p class="card__title" id="card_preview_title">Enter title</p>
+                                        <p class="card__subtitle" id="card_preview_subtitle">Enter subtitle</p>
+                                        <div class="card__bottom bottom">
+                                            <div class="bottom__author author">
+                                                <img class="author__image" src="../static/images/author-load.png">
+                                                <p class="author__name" id="author__name">Enter author name</p>
+                                            </div>
+                                            <p class="bottom__date" id="bottom__date">Enter publish date</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="shadow-right"></div>
+                                <div class="shadow-bottom"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space"></div>
+
+            <div class="editor__content content">
+                <p class="content__title">Content</p>
+                <div class="content__form form">
+                    <div class="form__input input">
+                        <label for="content" class="input__label">Post content (plain text)</label>
+                        <textarea id="content" name="content" class="input__field_big field"
+                            placeholder="Type anything you want ..."></textarea>
+                        <p id="comment-content" class="comment hidden">Content is required.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../static/js/admin.js"></script>
+</body>
+
+</html>

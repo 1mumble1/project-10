@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{ .Title }}</title>
+  <link href="../static/css/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Oxygen&family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="top top_background">
+    <div class="container">
+      <header class="top__navigation top__navigation_color navigation">
+        <a class="navigation__logo navigation__logo_color" href="/home">Escape.</a>
+        <div class="navigation__menu menu navigation__menu_color">
+          <ul class="menu__list menu__list_color">
+            <li class="menu__item"><a class="menu__link menu__link_color" href="/home">home</a></li>
+            <li class="menu__item"><a class="menu__link menu__link_color" href="#">categories</a></li>
+            <li class="menu__item"><a class="menu__link menu__link_color" href="#">about</a></li>
+            <li class="menu__item"><a class="menu__link menu__link_color" href="#">contact</a></li>
+          </ul>
+        </div>
+      </header>
+      <div class="top__banner banner banner_color">
+        <h1 class="banner__title banner__title_color">{{ .Title }}</h1>
+        <p class="banner__subtitle banner__subtitle_color">{{ .Subtitle }}</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="main_section">
+    <img class="main__image" src="../{{ .ImageUrl }}" alt="">
+    <div class="main__paragraph">
+      <p class="main__text">{{ .Content }}</p>
+    </div>
+  </section>
+
+  <div class="bottom">
+    <div class="bottom__communication">
+      <div class="communication__title">
+        <h2 class="title title_color">Stay in Touch</h2>
+        <div class="underline"></div>
+      </div>
+      <form class="communication__form">
+        <input class="form__text" type="text" placeholder="Enter your email address">
+        <input class="form__submit" type="submit">
+      </form>
+    </div>
+
+    <footer class="bottom__navigation navigation">
+      <div class="navigation__container">
+        <a class="navigation__logo" href="/home">Escape.</a>
+        <div class="navigation__menu menu">
+          <ul class="menu__list">
+            <li class="menu__item"><a class="menu__link menu__link_lower" href="/home">home</a></li>
+            <li class="menu__item"><a class="menu__link menu__link_lower" href="#">categories</a></li>
+            <li class="menu__item"><a class="menu__link menu__link_lower" href="#">about</a></li>
+            <li class="menu__item"><a class="menu__link menu__link_lower" href="#">contact</a></li>
+          </ul>
+        </div>
+      </div>
+      
+    </footer>
+  </div>
+</body>
+
+</html>

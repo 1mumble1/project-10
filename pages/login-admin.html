@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ .Title }}</title>
+    <link rel="stylesheet" href="../static/css/style-login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Oxygen&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="page">
+        <div class="container">
+            <div class="content">
+                <div class="content__banner banner">
+                    <div class="banner__title title">
+                        <p class="title">Escape.</p>
+                        <p class="title title_small">author</p>
+                    </div>
+                    <p class="banner__subtitle subtitle">
+                        Log in to start creating
+                    </p>
+                </div>
+
+                <div id="form"  class="content__form form"> <!-- action="https://echo.htmlacademy.ru" method="post" -->
+                    <p class="form__title">Log In</p>
+                    <div id="message-box" class="message-box hidden">
+                        <div class="message">
+                            <img class="message__alert" src="../static/images/alert-circle.png">
+                            <span id="message__text" class="message__text"></span>
+                        </div>
+                    </div>
+                    <div class="form__input input">
+                        <label for="email" class="input__label">Email</label>
+                        <input id="email" name="email" type="email" class="input__field">
+                        <p id="comment-email" class="comment hidden"></p>
+                    </div>
+                    <div class="form__input input">
+                        <label for="password" class="input__label">Password</label>
+                        <input id="password" name="password" type="password" class="input__field">
+                        <img src="../static/images/eye.png" class="input__hide-eye" id="eye">
+                        <p id="comment-password" class="comment hidden"></p>
+                    </div>
+                    <input id="submit" type="submit" class="form__button" value="Log In">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../static/js/login.js"></script>
+</body>
+
+</html>

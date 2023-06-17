@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{ .Title }}</title>
+  <link href="../static/css/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Oxygen&family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="top">
+    <div class="container">
+      <header class="top__navigation navigation">
+        <a class="navigation__logo" href="/home">Escape.</a>
+        <div class="navigation__menu menu">
+          <ul class="menu__list">
+            <li class="menu__item"><a class="menu__link" href="/home">home</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">categories</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">about</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">contact</a></li>
+          </ul>
+        </div>
+      </header>
+
+      <div class="top__banner banner">
+        <h1 class="banner__title">Let's do it together.</h1>
+        <p class="banner__subtitle">
+          We travel the world in search of stories.
+          Come along for the ride.
+        </p>
+        <a class="banner__button" href="#">View Latest Posts</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel container">
+    <ul class="panel__list">
+      <li class="panel__item"><a class="panel__link" href="#">Nature</a></li>
+      <li class="panel__item"><a class="panel__link" href="#">Photography</a></li>
+      <li class="panel__item"><a class="panel__link" href="#">Relaxation</a></li>
+      <li class="panel__item"><a class="panel__link" href="#">Vacation</a></li>
+      <li class="panel__item"><a class="panel__link" href="#">Travel</a></li>
+      <li class="panel__item"><a class="panel__link" href="#">Adventure</a></li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <div class="main__content content">
+
+      <div class="content__featured-posts">
+        <div class="content__title">
+          <h2 class="title">Featured Posts</h2>
+          <div class="underline"></div>
+        </div>
+        <div class="features container">
+          {{ range .FeaturedPosts }}
+          <div class="features__post">
+            <img class="post__image" src="../{{ .ImageUrl }}" alt="">
+            {{ if eq .Label 1 }}
+              <div class="post__note">adventure</div>
+            {{ end }}
+            <div class="post__info">
+              <div class="post__description">
+                <a class="post__title" href="/post/{{ .PostID }}">{{ .Title }}</a>
+                <p class="post__subtitle">{{ .Subtitle }}</p>
+              </div>
+              <div class="post__card">
+                <div class="card__author">
+                  <img class="author__image" src="../{{ .AuthorUrl }}" alt="{{ .Author }}">
+                  <p class="author__name">{{ .Author }}</p>
+                </div>
+                <div class="card__date">{{ .PublishDate }}</div>
+              </div>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+
+      <div class="content__most-recent">
+        <div class="content__title">
+          <h2 class="title">Most Recent</h2>
+          <div class="underline"></div>
+        </div>
+
+        <div class="most-recent container">
+          {{ range .RecentPosts }}
+          <div class="most-recent__post">
+            <img class="post__image post__image_small" src="../{{ .ImageUrl }}" alt="">
+            <div class="post__description post__description_small">
+              <a class="post__title post__title_small" href="/post/{{ .PostID }}">{{ .Title }}</a>
+              <p class="post__subtitle post__subtitle_small">{{ .Subtitle }}</p>
+            </div>
+            <div class="post__card post__card_small">
+              <div class="card__author card__author_small">
+                <img class="author__image author__image_small" src="../{{ .AuthorUrl }}" alt="{{ .Author }}">
+                <p class="author__name">{{ .Author }}</p>
+              </div>
+              <div class="card__date card__date_small">{{ .PublishDate }}</div>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="bottom__communication container">
+      <div class="communication__title">
+        <h2 class="title title_color">Stay in Touch</h2>
+        <div class="underline"></div>
+      </div>
+      <form class="communication__form">
+        <input class="form__text" type="text" placeholder="Enter your email address">
+        <input class="form__submit" type="submit" placeholder="Submit">
+      </form>
+    </div>
+
+    <footer class="bottom__navigation navigation">
+      <div class="container navigation__container">
+        <a class="navigation__logo" href="/home">Escape.</a>
+        <div class="navigation__menu menu">
+          <ul class="menu__list">
+            <li class="menu__item"><a class="menu__link menu__link_lower" href="/home">home</a></li>
+            <li class="menu__item"><a class="menu__link menu__link_lower" href="#">categories</a></li>
+            <li class="menu__item"><a class="menu__link menu__link_lower" href="#">about</a></li>
+            <li class="menu__item"><a class="menu__link menu__link_lower" href="#">contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </footer>
+  </div>
+</body>
+
+</html>
